@@ -112,3 +112,32 @@ The robot effectively navigates through wormholes to reach the goal map and fina
 - it queries from the database to receive the neighboring nodes and the wormhhole points.
 
 
+## How to use it 
+Launch turtlebot3 waffle simulation
+```bash
+export TURTLEBOT3_MODEL=waffle
+ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+```
+
+Launch rviz
+```bash
+rviz2
+```
+
+Launch navigation nav2
+```bash
+ros2 launch tb3_nav2 navigation.launch.py
+```
+
+Run the action server
+```bash
+ros2 run wormhole_nav wormhole_server
+```
+
+Run the action client
+```bash
+ros2 run wormhole_nav wormhole_client
+```
+
+## Future Improvements
+As of now the mechanism is working including the computation of map path, the sql retrivals and the map switching and initial poses. But if the orientation while publishing the initial pose is not right the robot will tend to drift and not reach its wormhole point or goal, so that is something which is to be kept in mind. Moreover the feedback from the action server is still to be incorporated so that we can monitor the robot progress.
