@@ -8,21 +8,19 @@ from launch.substitutions import Command, PathJoinSubstitution
 
 def generate_launch_description():
     
-    slam_params_path = os.path.join(
-        get_package_share_directory('tb3_nav2'),  # Change this to your package
+    ekf_config_path = os.path.join(
+        get_package_share_directory('kpbot_nav2'),  # Change to your package name
         'params',
-        'slam_params.yaml'
+        'ekf_params.yaml'
     )
-    
 
     return LaunchDescription([
-
+       
         Node(
-            package='slam_toolbox',
-            executable='async_slam_toolbox_node',
-            name='slam_toolbox',
+            package='robot_localization',
+            executable='ekf_node',
+            name='ekf_filter_node',
             output='screen',
-            parameters=[slam_params_path]
-        )
-
+            parameters=[ekf_config_path]
+        ),
     ])

@@ -19,6 +19,7 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('nav2_bringup')
     launch_dir = os.path.join(bringup_dir, 'launch')
     tb3_nav2_dir = get_package_share_directory('tb3_nav2')
+
     
     namespace = LaunchConfiguration('namespace')
     use_namespace = LaunchConfiguration('use_namespace')
@@ -65,7 +66,7 @@ def generate_launch_description():
 
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(tb3_nav2_dir, 'maps', 'my_map.yaml'),
+        default_value=os.path.join(tb3_nav2_dir, 'maps', 'mapA.yaml'),
         description='Full path to map yaml file to load')
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(

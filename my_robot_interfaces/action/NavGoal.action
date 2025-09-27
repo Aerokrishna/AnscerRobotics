@@ -1,0 +1,12 @@
+float32 robot_x
+float32 robot_y
+float32 robot_theta
+string map_name
+---
+float32 current_robot_x
+float32 current_robot_y
+float32 current_robot_theta
+string current_map_name
+---
+string status
+bool success
